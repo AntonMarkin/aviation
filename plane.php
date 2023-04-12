@@ -2,10 +2,23 @@
 
 abstract class plane
 {
-    abstract public function takeOf();
-    abstract public function landing();
-    abstract public function boarding();
-    public $boarded;
+    public function __construct($inSky, $isBoarded)
+    {
+        $this->inSky = $inSky;
+        $this->isBoarded = $isBoarded;
+    }
+
+    public function takeOf()
+    {
+        $this->inSky = true;
+        echo $this->name.' is take of<br>';
+    }
+    public function landing()
+    {
+        $this->inSky = false;
+        echo $this->name.' is landing<br>';
+    }
+    public $isBoarded;
     public $inSky;
     public $name;
     public $maxSpeed;
